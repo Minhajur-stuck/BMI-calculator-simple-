@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-blue-200">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="max-w-[600px] m-auto">
+  <header class="lg:mt-20">
+    <section>
+      <h1 class="text-center text-4xl font-bold">Calculate Your BMI</h1>
+      <label class="block" for="age">Age</label>
+      <input class="block border w-full bg-amber-50" id="age" type="number" min="2" max="102">
+       <label class="" for="male">Male</label>
+        <input class="" type="radio" id="male" name="gender" value="male">
+        
+        <label  class="" for="female">Female</label>
+        <input  class="" type="radio" id="female" name="gender" value="female">
+      <label  class="block " for="height">Height(m)</label>
+      <input  class="block border w-full bg-amber-50" type="number" id="height">
+       <label  class="block" for="height">weight(kg)</label>
+      <input class="block border w-full bg-amber-50" type="number" id="weight">
+      <button class="block w-full bg-amber-300" onclick="showBmi()">Calculate</button>
+    </section>
+    <div>
+      <h2 class="text-4xl" id="displayBmi"></h2>
+      <h2 class="text-4xl" id="displayStatus"></h2>
+    </div>
+  </header>
+
+  <script>
+    const displayStatus = document.getElementById('displayStatus');
+    function showBmi (){
+       const h = document.getElementById('height').value;
+       const w = document.getElementById('weight').value;
+       const numHeight = Number(h);
+       const numWight =Number(w)
+       const BMI = (numWight/(numHeight*numHeight)).toFixed(2);
+       console.log(BMI);
+       const displayBmi = document.getElementById('displayBmi').innerHTML = `Your BMI is ${BMI}`;
+       condition(BMI);
+    }
+
+    function condition(BMI){
+      if(BMI < 18.5){
+        displayStatus.innerHTML= 'You are underweight';
+      } else{
+        if(BMI >= 18.5 && BMI <=24.9){
+          displayStatus.innerHTML='you are normal';
+        }else{
+          if(BMI <= 25 && BMI <=29.9){
+            displayStatus.innerHTML='your are overweight';
+          }else{
+            displayStatus.innerHTML='you are obses';
+          }
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>
