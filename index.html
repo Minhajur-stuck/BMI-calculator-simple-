@@ -39,21 +39,21 @@
        const numWight =Number(w)
        const BMI = (numWight/(numHeight*numHeight)).toFixed(2);
        console.log(BMI);
-       const displayBmi = document.getElementById('displayBmi').innerHTML = `Your BMI is ${BMI}`;
+       const displayBmi = document.getElementById('displayBmi').innerHTML = `তুমার BMI হলোঃ ${BMI}`;
        condition(BMI);
     }
 
     function condition(BMI){
       if(BMI < 18.5){
-        displayStatus.innerHTML= 'You are underweight';
+        displayStatus.innerHTML= 'তুমি ওজন কম';
       } else{
         if(BMI >= 18.5 && BMI <=24.9){
-          displayStatus.innerHTML='you are normal';
+          displayStatus.innerHTML='তুমার ওজন ঠিক আছে';
         }else{
           if(BMI <= 25 && BMI <=29.9){
-            displayStatus.innerHTML='your are overweight';
+            displayStatus.innerHTML='তুমি ওজন একটু বেশি । খাবার একটু কমাই দাও';
           }else{
-            displayStatus.innerHTML='you are obses';
+            displayStatus.innerHTML='জিম কর তুমি অতিরিক্ত মোটা';
           }
         }
       }
